@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: d6f4f0d27df36b243983756cc0b64764
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _Waterfall1: {fileID: 2800000, guid: bb7679e4a90251745b0d74243ddae4b5, type: 3}
+  - _Waterfall2: {fileID: 2800000, guid: 79942d02ef6ebad46bc22ff74454d50b, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
