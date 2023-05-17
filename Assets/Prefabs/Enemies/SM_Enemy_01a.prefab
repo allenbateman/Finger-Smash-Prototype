@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 5656128676061923153}
   - component: {fileID: 4028973039558339424}
   - component: {fileID: 3034463507159119526}
+  - component: {fileID: 3715966264952400960}
   m_Layer: 0
   m_Name: SM_Enemy_01a
   m_TagString: Untagged
@@ -141,7 +142,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5636458447850312197}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -164,5 +165,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1af2f01f804da6c4b940211a89da2e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3715966264952400960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636458447850312197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b85d7403208ca4fb8c6209db6b9ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
