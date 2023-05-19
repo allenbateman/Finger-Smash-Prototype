@@ -14,14 +14,10 @@ public class Spawner : MonoBehaviour
     public float m_MaxDistance = 10f;
     public int m_MaxAttempts = 50;
 
-    private void Awake()
-    {
-        m_EnemyManager = EnemyManager.instance;
-    }
-
     void Start()
     {
         m_Timer = 0.0f;
+        m_EnemyManager = EnemyManager.instance;
     }
     void Update()
     {
