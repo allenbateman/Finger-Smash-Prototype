@@ -9,13 +9,13 @@ public class Tower : MonoBehaviour
 {
     public GameObject TargetPrefab;
 
-    private Queue<Target> m_Targets= new Queue<Target>();
-    private HashSet<int> m_IdSet = new HashSet<int>();
+    private Queue<Target> targets= new Queue<Target>();
+    private HashSet<int> idSet = new HashSet<int>();
 
     private SphereCollider m_Collider;
-    public int m_MaxTargets = 4;
-    public float m_RateOfFire = 1.0f;
-    public int m_Damage = 1;
+    public int maxTargets = 4;
+    public float rateOfFire = 1.0f;
+    public int damage = 1;
 
     private void Awake()
     {
@@ -41,33 +41,33 @@ public class Tower : MonoBehaviour
         GameObject go = Instantiate(TargetPrefab);
         Target target = go.AddComponent<Target>();
 
-        m_Targets.Enqueue(target);
-        m_IdSet.Add(targetGo.GetInstanceID());
+        targets.Enqueue(target);
+        idSet.Add(targetGo.GetInstanceID());
         go.transform.position = new Vector3(gameObject.transform.position.x, 3, gameObject.transform.position.z);
 
-        target.m_Target = targetGo;
-        target.m_Damage = m_Damage;
-        target.m_RateOfFire = m_RateOfFire;
+        target.target = targetGo;
+        target.damage = damage;
+        target.rateOfFire = rateOfFire;
         target.SetDebugDraw(true);
 
     }
     private void OnTargetDeath(Target target)
     {
         // Remove the dead enemy from the target queue
-        if (m_Targets.Contains(target))
+        if (targets.Contains(target))
         {
-            Target tmp = m_Targets.Dequeue();
-            m_IdSet.Remove(tmp.gameObject.GetInstanceID());
+            Target tmp = targets.Dequeue();
+            idSet.Remove(tmp.gameObject.GetInstanceID());
             Debug.Log("Enemy died!");
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (m_Targets.Count < m_MaxTargets && other.CompareTag("Enemy"))
+        if (targets.Count < maxTargets && other.CompareTag("Enemy"))
         {
             int instanceID = other.gameObject.GetInstanceID();
-            if (!m_IdSet.Contains(instanceID))
+            if (!idSet.Contains(instanceID))
                 AddTarget(other.gameObject);
         }
     }

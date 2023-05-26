@@ -16,7 +16,7 @@ public class ColliderVisibility : MonoBehaviour
             }
             else if (collider is SphereCollider sphereCollider)
             {
-                Gizmos.DrawWireSphere(transform.position + sphereCollider.center, sphereCollider.radius);
+                Gizmos.DrawWireSphere(transform.position + sphereCollider.center, sphereCollider.radius * transform.localScale.y);
             }
             // Add support for other collider types as needed
         }

@@ -7,27 +7,27 @@ using UnityEngine.AI;
 
 public class Spawner : MonoBehaviour
 {
-    public float m_SpawnTime = 1.0f;
-    private float m_Timer = 0.0f;
-    private EnemyManager m_EnemyManager;
+    public float spawnTime = 1.0f;
+    private float timer = 0.0f;
+    private EnemyManager enemyManager;
 
-    public float m_MaxDistance = 10f;
-    public int m_MaxAttempts = 50;
+    public float maxDistance = 10f;
+    public int maxAttempts = 50;
 
     void Start()
     {
-        m_Timer = 0.0f;
-        m_EnemyManager = EnemyManager.instance;
+        timer = 0.0f;
+        enemyManager = EnemyManager.instance;
     }
     void Update()
     {
-        m_Timer += Time.deltaTime;
+        timer += Time.deltaTime;
 
-        if (m_Timer > m_SpawnTime) {
+        if (timer > spawnTime) {
             Vector3 pos = GetRandomPosition();
             Quaternion rot = Quaternion.LookRotation(pos, Vector3.up);
-            m_EnemyManager.SpawnEnemy(pos, rot);
-            m_Timer = 0.0f;   
+            enemyManager.SpawnEnemy(pos, rot);
+            timer = 0.0f;   
         }
     }
 
@@ -37,14 +37,14 @@ public class Spawner : MonoBehaviour
         Vector3 randomPosition = Vector3.zero;
         int attempts = 0;
 
-        while (attempts < m_MaxAttempts)
+        while (attempts < maxAttempts)
         {
             // Generate a random point within the m_MaxDistance range from the current position
-            Vector3 randomOffset = UnityEngine.Random.insideUnitSphere * m_MaxDistance;
+            Vector3 randomOffset = UnityEngine.Random.insideUnitSphere * maxDistance;
             Vector3 newPosition = transform.position + randomOffset;
 
             // Check if the random position is within the desired area mask
-            if (NavMesh.SamplePosition(newPosition, out hit, m_MaxDistance, 3))
+            if (NavMesh.SamplePosition(newPosition, out hit, maxDistance, 3))
             {
                 randomPosition = hit.position;
                 break; // Exit the loop if a valid random position is found

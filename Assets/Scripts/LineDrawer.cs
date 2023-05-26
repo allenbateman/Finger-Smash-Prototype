@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class LineDrawer : MonoBehaviour
 {
-    public LineRenderer m_LineRenderer;  // Reference to the LineRenderer component
-    public Vector3 m_StartPoint;
-    public Vector3 m_EndPoint;
-    public bool m_Enable = true;
+    public LineRenderer lineRenderer;  // Reference to the LineRenderer component
+    public Vector3 startPoint;
+    public Vector3 endPoint;
+    public bool enable = true;
 
     void Start()
     {
         // Initialize the line renderer component
-        m_LineRenderer = GetComponent<LineRenderer>();
-        m_LineRenderer.positionCount = 2;  // Set the number of positions (start and end points)
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 2;  // Set the number of positions (start and end points)
     }
 
     void Update()
     {
-        if(!m_Enable)
+        if(!enable)
             return;
 
-        m_LineRenderer.SetPosition(0, m_StartPoint);
-        m_LineRenderer.SetPosition(1, m_EndPoint);
+        lineRenderer.SetPosition(0, startPoint);
+        lineRenderer.SetPosition(1, endPoint);
     }
 }
