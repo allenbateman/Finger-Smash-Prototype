@@ -8,25 +8,20 @@ public class EnemyManager : MonoBehaviour
     // Singleton manager
     public static EnemyManager instance;
     [SerializeField] GameObject enemyPrefab;
-    public List<Enemy> enemies = new List<Enemy>();
+    public List<GameObject> enemies = new List<GameObject>();
 
     void Awake() => instance = this;
 
     public Enemy SpawnEnemy(Vector3 pos, Quaternion rot)
     {
-        Enemy newEnemy = Instantiate<Enemy>(enemyPrefab, pos, rot);
-        enemies.Add(newEnemy);
+        GameObject newEnemy = Instantiate(enemyPrefab, pos, rot);
 
         // TODO: set a starting position in the navmesh
-        return newEnemy;
-    }
 
-    private T Instantiate<T>(GameObject enemyPrefab, Vector3 pos, Quaternion rot)
-    {
-        GameObject go = Instantiate(enemyPrefab, pos, rot);
-        T comp;
-        go.TryGetComponent(out comp);
-        return comp;
+        Enemy enemyCmp;
+        newEnemy.TryGetComponent<Enemy>(out enemyCmp);
+        enemies.Add(newEnemy);
+        return enemyCmp;
     }
 
     void Update()
