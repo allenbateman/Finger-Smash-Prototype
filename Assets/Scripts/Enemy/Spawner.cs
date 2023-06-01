@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        timer = 0.0f;
+        timer = spawnTime;
         enemyManager = EnemyManager.instance;
     }
     void Update()

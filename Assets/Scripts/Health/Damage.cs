@@ -5,8 +5,8 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     public int damage = 1;
+    [HideInInspector]
     public int ownerHashCode;
-
     public void SetParameters(int damage, int ownerHashCode)
     {
         this.damage = damage;

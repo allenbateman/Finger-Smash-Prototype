@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 7427597029727721406}
   - component: {fileID: 3541477343026708717}
   - component: {fileID: 4129945369609485933}
+  - component: {fileID: 5829455380676995475}
   m_Layer: 0
   m_Name: Ranged_Attack_01a
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,3 +128,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e998737e185dbe4fa7d0304fad279e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5829455380676995475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465376132334763931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a5afb2144fd0e4c9f6e3dbbdba3dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  ownerHashCode: 0

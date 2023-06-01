@@ -13,11 +13,10 @@ public class Damagable : MonoBehaviour
         hashCodeTag = tag.GetHashCode();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         // Receive damage
-        Damage damage;
-        if (collision.gameObject.TryGetComponent<Damage>(out damage))
+        if (other.gameObject.TryGetComponent(out Damage damage))
         {
             // Don't do damage to ourselves
             if (hashCodeTag == damage.ownerHashCode)

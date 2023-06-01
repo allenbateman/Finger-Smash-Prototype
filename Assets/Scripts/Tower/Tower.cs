@@ -35,6 +35,12 @@ public class Tower : MonoBehaviour
     {
         // Unsubscribe from the target's death event when the tower is destroyed
         Target.OnDeath -= OnTargetDeath;
+
+        foreach (var item in targets)
+        {
+            if (item.IsDestroyed() == false)
+                GameObject.Destroy(item.gameObject);    
+        }
     }
     private void AddTarget(GameObject targetGo)
     {
@@ -62,7 +68,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnChildTriggerStay(Collider other)
     {
         if (targets.Count < maxTargets && other.CompareTag("Enemy"))
         {

@@ -182,7 +182,7 @@ Transform:
   m_Children:
   - {fileID: 1645773830670153036}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &4028973039558339424
 NavMeshAgent:
@@ -194,7 +194,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -221,6 +221,7 @@ MonoBehaviour:
   isMelee: 0
   attack: {fileID: 4465376132334763931, guid: 7cf96b64cd0818341ac7bdda5a767d32, type: 3}
   enemyStats: {fileID: 11400000, guid: 22f309f46fdb83348a0f1ca9d29ff8c6, type: 2}
+  launchAngle: 45
 --- !u!114 &2835834838243008743
 MonoBehaviour:
   m_ObjectHideFlags: 0
