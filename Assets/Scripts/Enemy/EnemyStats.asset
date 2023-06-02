@@ -16,7 +16,7 @@ MonoBehaviour:
   Enemy_Melee_Damage: 10
   Enemy_Melee_RangeOfAttack: 2
   Enemy_Melee_RateOfAttack: 1
-  Enemy_Ranged_Health: 1000000
+  Enemy_Ranged_Health: 70
   Enemy_Ranged_Damage: 5
   Enemy_Ranged_RangeOfAttack: 30
   Enemy_Ranged_RateOfAttack: 1
