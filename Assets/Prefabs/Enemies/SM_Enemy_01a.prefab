@@ -221,6 +221,7 @@ MonoBehaviour:
   isMelee: 0
   attack: {fileID: 4465376132334763931, guid: 7cf96b64cd0818341ac7bdda5a767d32, type: 3}
   enemyStats: {fileID: 11400000, guid: 22f309f46fdb83348a0f1ca9d29ff8c6, type: 2}
+  fireChild: {fileID: 0}
   launchAngle: 45
 --- !u!114 &2835834838243008743
 MonoBehaviour:
@@ -234,9 +235,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef7aa4f0b030024298eda9bbf4ae222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  uiText: {fileID: 0}
+  health: 10
   goldParticlePrefab: {fileID: 1320088030690355248, guid: ca6cbfeb8dbfa694896abcbb3c102b44, type: 3}
+  healthBar: {fileID: 0}
+  goldValue: 25
   maxHealth: 0
 --- !u!114 &1531995249
 MonoBehaviour:

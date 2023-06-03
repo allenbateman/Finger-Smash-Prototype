@@ -124,6 +124,7 @@ MonoBehaviour:
   health: 0
   goldParticlePrefab: {fileID: 1320088030690355248, guid: ca6cbfeb8dbfa694896abcbb3c102b44, type: 3}
   healthBar: {fileID: 6024592797511577591}
+  goldValue: 25
   maxHealth: 0
 --- !u!114 &7250860165774080220
 MonoBehaviour:

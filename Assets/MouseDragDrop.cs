@@ -38,8 +38,6 @@ public class MouseDragDrop : MonoBehaviour
                     vec = new Vector3(pos.x, pos.y, dist);
                     offset = draggObj.transform.position - vec;
                     dragging = true;
-                   // Debug.Log("Touch" + hit.transform.tag);
-                   // Debug.Log(draggTransform.position);
                     hitPos = hitPos;
 
                     initialMousePos = Input.mousePosition;
@@ -72,9 +70,6 @@ public class MouseDragDrop : MonoBehaviour
 
         if (dragging && !Input.GetMouseButton(0))
         {
-
-
-
             Vector3 throwDirUp = Camera.main.transform.position - hitPos;
             Vector2 mouseDir = endMousePos - initialMousePos;
 
