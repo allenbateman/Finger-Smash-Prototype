@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public EnemyManager EnemyManager;
     public Spawner EnemySpawner;
     public GoldCounter goldCounter;
+    public TowerManager towerManager;
+
     private int currentGold = 0;
     private void Awake()
     {
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
         GameOverCanvas.SetActive(false);
         PauseCanvas.SetActive(false);
         EnemySpawner.Spawn(false);
+        towerManager.ResetTowerLevel();
     }
 
     public void OnGameOver()
@@ -67,6 +70,7 @@ public class GameManager : MonoBehaviour
         GameOverCanvas.SetActive(true);
         PauseCanvas.SetActive(false);
         EnemySpawner.Spawn(false);
+        towerManager.ResetTowerLevel();
     }
 
     public void OnPause()
