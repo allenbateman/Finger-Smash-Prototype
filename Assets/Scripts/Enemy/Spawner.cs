@@ -23,9 +23,11 @@ public class Spawner : MonoBehaviour
     }
     void Update()
     {
+        if (!CanSpawn) return;
+
         timer += Time.deltaTime;
 
-        if (timer > spawnTime && CanSpawn) {
+        if (timer > spawnTime ) {
             Vector3 pos = GetRandomPosition();
             Quaternion rot = Quaternion.LookRotation(pos, Vector3.up);
             enemyManager.SpawnEnemy(pos, rot);

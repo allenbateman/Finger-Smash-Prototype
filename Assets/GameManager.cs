@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject GameOverCanvas;
     public GameObject PauseCanvas;
 
-    public EnemyManager EnemyManager;
-    public Spawner EnemySpawner;
+    public EnemyManager enemyManager;
+ 
     public GoldCounter goldCounter;
     public TowerManager towerManager;
 
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         GameOverCanvas.SetActive(false);
         PauseCanvas.SetActive(false);
 
-        EnemySpawner.Spawn(true);
+        enemyManager.StartSpawning();
 
         AddGold(0);
     }   
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         MainMenuCanvas.SetActive(true);
         GameOverCanvas.SetActive(false);
         PauseCanvas.SetActive(false);
-        EnemySpawner.Spawn(false);
+        enemyManager.StopSpawning();
         towerManager.ResetTowerLevel();
     }
 
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         MainMenuCanvas.SetActive(false);
         GameOverCanvas.SetActive(true);
         PauseCanvas.SetActive(false);
-        EnemySpawner.Spawn(false);
+        enemyManager.StopSpawning();
         towerManager.ResetTowerLevel();
     }
 
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         MainMenuCanvas.SetActive(false);
         GameOverCanvas.SetActive(false);
         PauseCanvas.SetActive(true);
-        EnemySpawner.Spawn(false);
+        enemyManager.StopSpawning();
     }
 
     public void OnContinue()
@@ -88,6 +88,6 @@ public class GameManager : MonoBehaviour
         MainMenuCanvas.SetActive(false);
         GameOverCanvas.SetActive(false);
         PauseCanvas.SetActive(false);
-        EnemySpawner.Spawn(true);
+        enemyManager.StartSpawning();
     }
 }

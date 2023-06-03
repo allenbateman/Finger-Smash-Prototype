@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager instance;
     [SerializeField] GameObject enemyPrefab;
     public List<GameObject> enemies = new List<GameObject>();
-
+    [SerializeField] private List<Spawner> spawners;
     void Awake() => instance = this;
 
     public Enemy SpawnEnemy(Vector3 pos, Quaternion rot)
@@ -27,5 +27,20 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         // Useful for UI purposes, visual cues, etc.
+    }
+
+   public void StartSpawning()
+   {
+        foreach(Spawner s in spawners)
+        {
+            s.Spawn(true);
+        }
+   }
+    public void StopSpawning()
+    {
+        foreach (Spawner s in spawners)
+        {
+            s.Spawn(false);
+        }
     }
 }

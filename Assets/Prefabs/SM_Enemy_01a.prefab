@@ -38,7 +38,7 @@ Transform:
   - {fileID: 8691940618963958847}
   - {fileID: 6293709443146040016}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &880586885957353422
 CapsuleCollider:
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  goldParticlePrefab: {fileID: 1320088030690355248, guid: ca6cbfeb8dbfa694896abcbb3c102b44, type: 3}
   healthBar: {fileID: 6024592797511577591}
   maxHealth: 0
 --- !u!114 &7250860165774080220
