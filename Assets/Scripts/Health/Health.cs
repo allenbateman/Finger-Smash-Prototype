@@ -5,7 +5,9 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] int health;
-    public TMPro.TextMeshPro uiText;
+    [SerializeField] HealthBar healthBar;
+
+    //public TMPro.TextMeshPro uiText;
 
     public int maxHealth;
     private bool isAlive;
@@ -13,15 +15,18 @@ public class Health : MonoBehaviour
     void Start()
     {
         //m_Health = m_MaxHealth;
-        uiText = gameObject.GetComponentInChildren<TMPro.TextMeshPro>();
+        //uiText = gameObject.GetComponentInChildren<TMPro.TextMeshPro>();
         isAlive = true;
+
+        if (healthBar)
+            healthBar.UpdateHealthBar(maxHealth, health);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(uiText)
-            uiText.text = health.ToString();
+        //if(uiText)
+        //    uiText.text = health.ToString();
 
         if (!isAlive)
             Destroy(gameObject);
@@ -36,6 +41,9 @@ public class Health : MonoBehaviour
         {
             Debug.Log("Damage: " + damage + " -- Health: " + health);
             health -= damage;
+
+            if (healthBar)
+                healthBar.UpdateHealthBar(maxHealth, health);
         }
     }
 
