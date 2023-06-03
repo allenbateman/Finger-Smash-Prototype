@@ -4,10 +4,8 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] int health;
-    [SerializeField] HealthBar healthBar;
-
-    //public TMPro.TextMeshPro uiText;
-
+    [SerializeField] private GameObject goldParticlePrefab;
+    
     public int maxHealth;
     private bool isAlive;
     // Start is called before the first frame update
@@ -19,23 +17,14 @@ public class Health : MonoBehaviour
             healthBar.UpdateHealthBar(maxHealth, health);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!isAlive)
-            Destroy(gameObject);
-        if (health <= 0)
-            isAlive = false;
-    }
     public void DoDamage(int damage)
     {
-        if (isAlive)
+        health -= damage;
+        if (health <= 0)
         {
-            Debug.Log("Damage: " + damage + " -- Health: " + health);
-            health -= damage;
-
-            if (healthBar)
-                healthBar.UpdateHealthBar(maxHealth, health);
+            isAlive = false;
+            Instantiate(goldParticlePrefab,transform);
+            Destroy(gameObject);
         }
     }
 
