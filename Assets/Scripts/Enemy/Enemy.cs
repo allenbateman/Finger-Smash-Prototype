@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     private GameObject tower;
 
-    private GameObject fireChild;
+    [SerializeField] private GameObject fireChild;
 
     private float rateOfFire;
     private float rangeOfFire;
@@ -54,7 +54,6 @@ public class Enemy : MonoBehaviour
         if (tower == null)
             return;
 
-        fireChild = transform.GetChild(0).GetChild(1).gameObject;
         agent.SetDestination(tower.transform.position);
     }
 

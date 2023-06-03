@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 7651774260620469745}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7651774259916496291
 MonoBehaviour:
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6598642499393682090, guid: 1128ef5acd71b04488395d3ab41cc2b2, type: 3}
   towerTransform: {fileID: 0}
+  cooldownTime: 1.2
 --- !u!1 &7651774260620469748
 GameObject:
   m_ObjectHideFlags: 0

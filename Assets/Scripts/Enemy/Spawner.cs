@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     public float maxDistance = 10f;
     public int maxAttempts = 50;
 
-    bool CanSpawn;
+    bool CanSpawn = true;
 
     void Start()
     {

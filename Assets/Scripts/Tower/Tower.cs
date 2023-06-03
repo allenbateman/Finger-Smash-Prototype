@@ -13,9 +13,10 @@ public class Tower : MonoBehaviour
     private HashSet<int> idSet = new HashSet<int>();
 
     private SphereCollider m_Collider;
-    public int maxTargets = 4;
-    public float rateOfFire = 1.0f;
-    public int damage = 1;
+    public List<Transform> wizardsList = new List<Transform>();
+
+    [SerializeField] int rayDamage = 1;
+    [SerializeField] int projectileDamage = 10;
 
     private void Awake()
     {
@@ -49,11 +50,13 @@ public class Tower : MonoBehaviour
 
         targets.Enqueue(target);
         idSet.Add(targetGo.GetInstanceID());
-        go.transform.position = new Vector3(gameObject.transform.position.x, 3, gameObject.transform.position.z);
+
+        int count = targets.Count;
+        Transform wizardTr = wizardsList[count - 1];
+        go.transform.position = wizardTr.position;
 
         target.target = targetGo;
-        target.damage = damage;
-        target.rateOfFire = rateOfFire;
+        target.tickDamage = rayDamage;
         target.SetDebugDraw(true);
 
     }
@@ -70,7 +73,7 @@ public class Tower : MonoBehaviour
 
     private void OnChildTriggerStay(Collider other)
     {
-        if (targets.Count < maxTargets && other.CompareTag("Enemy"))
+        if (targets.Count < wizardsList.Count && other.CompareTag("Enemy"))
         {
             int instanceID = other.gameObject.GetInstanceID();
             if (!idSet.Contains(instanceID))

@@ -10,8 +10,8 @@ public class Target : MonoBehaviour
     private LineDrawer lineDrawer;
     private Health targetHealth;
 
-    public float rateOfFire = 1.0f;
-    public int damage = 1;
+    [SerializeField] float tickTimer = 0.125f;
+    public int tickDamage = 1;
 
     private float timer = 0.0f;
 
@@ -28,13 +28,15 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        lineDrawer.endPoint = target.transform.position;
+        if (target)
+            lineDrawer.endPoint = target.transform.position;
 
         timer += Time.deltaTime;
 
-        if (timer >= rateOfFire)
+        if (timer >= tickTimer)
         {
-            targetHealth.DoDamage(damage);
+            if (target)
+                targetHealth.DoDamage(tickDamage);
             timer = 0.0f;
         }
 
