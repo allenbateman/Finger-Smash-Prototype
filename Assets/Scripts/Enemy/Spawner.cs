@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour
     {
         timer = spawnTime;
         enemyManager = EnemyManager.instance;
+        CanSpawn = false;
     }
     void Update()
     {

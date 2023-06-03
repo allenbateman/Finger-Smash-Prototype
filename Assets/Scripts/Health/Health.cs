@@ -24,7 +24,8 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             isAlive = false;
-            Instantiate(goldParticlePrefab,transform);
+            Instantiate(goldParticlePrefab);
+            Debug.Log("instantiating gold particle");
             Destroy(gameObject);
         }
     }

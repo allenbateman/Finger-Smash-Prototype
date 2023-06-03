@@ -50,7 +50,10 @@ public class GameManager : MonoBehaviour
 
         enemyManager.StartSpawning();
 
+        currentGold = 0;
         AddGold(0);
+
+        Debug.Log("Button cliked");
     }   
 
     public void OnMainMenu()
