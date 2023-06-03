@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44574058, g: 0.4954493, b: 0.57426536, a: 1}
+  m_IndirectSpecularColor: {r: 0.44574022, g: 0.495449, b: 0.5742648, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19702,6 +19702,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &351177300 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4223081386512455496, guid: 1fe0d8c15d5a33142ab9d0b0d6a075f0, type: 3}
+  m_PrefabInstance: {fileID: 6674264552048588991}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &351353789
 Transform:
   m_ObjectHideFlags: 0
@@ -60896,6 +60901,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1455656230}
     - target: {fileID: 5775822703543405148, guid: 43dfa152a9bd624408f3df29bc570128, type: 3}
+      propertyPath: towerManager
+      value: 
+      objectReference: {fileID: 1523068101}
+    - target: {fileID: 5775822703543405148, guid: 43dfa152a9bd624408f3df29bc570128, type: 3}
       propertyPath: GameOverCanvas
       value: 
       objectReference: {fileID: 225293106}
@@ -79087,6 +79096,26 @@ Transform:
   m_Father: {fileID: 1500391350}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1523068099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4008564035987730163, guid: 1fe0d8c15d5a33142ab9d0b0d6a075f0, type: 3}
+  m_PrefabInstance: {fileID: 6674264552048588991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1523068101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523068099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941391960997ba94284141e3107affa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerLevel_1: {fileID: 351177300}
+  towerLevel_2: {fileID: 1546702721}
+  towerLevel_3: {fileID: 0}
 --- !u!4 &1523779932
 Transform:
   m_ObjectHideFlags: 0
@@ -80637,6 +80666,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1546702721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7231844614812721738, guid: 1fe0d8c15d5a33142ab9d0b0d6a075f0, type: 3}
+  m_PrefabInstance: {fileID: 6674264552048588991}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &1547113263
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -104039,6 +104073,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943925876}
   m_Mesh: {fileID: 4300000, guid: 2082051aa9c71614ab77d69a44cfded8, type: 3}
+--- !u!1 &1945169033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1945169034}
+  m_Layer: 0
+  m_Name: GameEntities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1945169034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945169033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.613035, y: 4.7864227, z: -4.606228}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1945407772
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -117116,7 +117181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4223081386512455496, guid: 1fe0d8c15d5a33142ab9d0b0d6a075f0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4223081386512455496, guid: 1fe0d8c15d5a33142ab9d0b0d6a075f0, type: 3}
       propertyPath: m_TagString
@@ -117156,7 +117221,7 @@ PrefabInstance:
       objectReference: {fileID: 1320088030690355248, guid: ca6cbfeb8dbfa694896abcbb3c102b44, type: 3}
     - target: {fileID: 7231844614812721738, guid: 1fe0d8c15d5a33142ab9d0b0d6a075f0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7231844614812721738, guid: 1fe0d8c15d5a33142ab9d0b0d6a075f0, type: 3}
       propertyPath: m_TagString

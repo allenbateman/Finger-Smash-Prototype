@@ -10,11 +10,17 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     public List<GameObject> enemies = new List<GameObject>();
     [SerializeField] private List<Spawner> spawners;
-    void Awake() => instance = this;
+
+    private GameObject gameEntitiesGO;
+    void Awake()
+    {
+        instance = this;
+        gameEntitiesGO = GameManager.Instance.gameEntitiesGO;
+    }
 
     public Enemy SpawnEnemy(Vector3 pos, Quaternion rot)
     {
-        GameObject newEnemy = Instantiate(enemyPrefab, pos, rot);
+        GameObject newEnemy = Instantiate(enemyPrefab, pos, rot, gameEntitiesGO.transform);
 
         // TODO: set a starting position in the navmesh
 
@@ -29,18 +35,36 @@ public class EnemyManager : MonoBehaviour
         // Useful for UI purposes, visual cues, etc.
     }
 
-   public void StartSpawning()
-   {
-        foreach(Spawner s in spawners)
+    public void StartSpawning()
+    {
+        foreach (Spawner s in spawners)
         {
             s.Spawn(true);
         }
-   }
+    }
     public void StopSpawning()
     {
         foreach (Spawner s in spawners)
         {
             s.Spawn(false);
+        }
+    }
+
+    public void KillAllEnemies()
+    {
+        foreach (GameObject e in enemies)
+        {
+            Destroy(e);
+        }
+
+        enemies.Clear();
+    }
+
+    public void ResetSpawners()
+    {
+        foreach (Spawner s in spawners)
+        {
+            s.ResetTimer();
         }
     }
 }

@@ -16,12 +16,15 @@ public class Tower : MonoBehaviour
     public List<Transform> wizardsList = new List<Transform>();
 
     [SerializeField] int rayDamage = 1;
-    [SerializeField] int projectileDamage = 10;
+
+    private GameObject gameEntitiesGO;
+    public static int projectileDamage { get; private set; } = 10;
 
     private void Awake()
     {
         TryGetComponent(out m_Collider);
     }
+
     void Start()
     {
         // Subscribe to the target's death event
@@ -45,7 +48,7 @@ public class Tower : MonoBehaviour
     }
     private void AddTarget(GameObject targetGo)
     {
-        GameObject go = Instantiate(TargetPrefab);
+        GameObject go = Instantiate(TargetPrefab, GameManager.Instance.gameEntitiesGO.transform);
         Target target = go.AddComponent<Target>();
 
         targets.Enqueue(target);
@@ -67,7 +70,6 @@ public class Tower : MonoBehaviour
         {
             Target tmp = targets.Dequeue();
             idSet.Remove(tmp.gameObject.GetInstanceID());
-            Debug.Log("Enemy died!");
         }
     }
 

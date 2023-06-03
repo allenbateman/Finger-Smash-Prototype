@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public GoldCounter goldCounter;
     public TowerManager towerManager;
 
+    public GameObject gameEntitiesGO;
+
     private int currentGold = 0;
     private void Awake()
     {
@@ -43,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     public void OnStartGame()
     {
+        Time.timeScale = 1;
+
         GameplayCanvas.SetActive(true);
         MainMenuCanvas.SetActive(false);
         GameOverCanvas.SetActive(false);
@@ -58,22 +62,32 @@ public class GameManager : MonoBehaviour
 
     public void OnMainMenu()
     {
+        DeleteAllEntities();
+
         GameplayCanvas.SetActive(false);
         MainMenuCanvas.SetActive(true);
         GameOverCanvas.SetActive(false);
         PauseCanvas.SetActive(false);
+
         enemyManager.StopSpawning();
+        enemyManager.ResetSpawners();
         towerManager.ResetTowerLevel();
+
+        Time.timeScale = 1;
     }
 
     public void OnGameOver()
     {
+
         GameplayCanvas.SetActive(false);
         MainMenuCanvas.SetActive(false);
         GameOverCanvas.SetActive(true);
         PauseCanvas.SetActive(false);
+
         enemyManager.StopSpawning();
         towerManager.ResetTowerLevel();
+
+        Time.timeScale = 0;
     }
 
     public void OnPause()
@@ -82,7 +96,10 @@ public class GameManager : MonoBehaviour
         MainMenuCanvas.SetActive(false);
         GameOverCanvas.SetActive(false);
         PauseCanvas.SetActive(true);
+
         enemyManager.StopSpawning();
+
+        Time.timeScale = 0;
     }
 
     public void OnContinue()
@@ -91,6 +108,18 @@ public class GameManager : MonoBehaviour
         MainMenuCanvas.SetActive(false);
         GameOverCanvas.SetActive(false);
         PauseCanvas.SetActive(false);
+
         enemyManager.StartSpawning();
+
+        Time.timeScale = 1;
+    }
+
+    void DeleteAllEntities()
+    {
+        int count = gameEntitiesGO.transform.childCount;
+        for (int i = 0; i < count; i++)
+        {
+            Destroy(gameEntitiesGO.transform.GetChild(i).gameObject);       
+        }
     }
 }

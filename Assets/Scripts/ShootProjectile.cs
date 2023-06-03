@@ -12,11 +12,19 @@ public class ShootProjectile : MonoBehaviour
     float timer;
     public float cooldownTime = 1.5f;
     bool canShoot = false;
+    private GameObject gameEntitiesGO;
 
     private void Awake()
     {
         if (TryGetComponent(out tap))
             tap.hitAction += Shoot;
+
+        gameEntitiesGO = GameManager.Instance.gameEntitiesGO;
+    }
+
+    private void Start()
+    {
+        gameEntitiesGO = GameManager.Instance.gameEntitiesGO;
     }
 
     private void Update()
@@ -46,12 +54,17 @@ public class ShootProjectile : MonoBehaviour
 
         canShoot = false;
 
-        Debug.Log("Shoot!");
-        GameObject go = Instantiate(projectile);
+        GameObject go = Instantiate(projectile, gameEntitiesGO.transform);
         go.transform.position = towerTransform.position;
 
         Vector3 direction = position - go.transform.position;
         float distance = direction.magnitude;
+
+        Damage damage = go.GetComponentInChildren<Damage>(true);
+        if (damage)
+        {
+            damage.damage = Tower.projectileDamage;
+        }
 
         if (go.TryGetComponent(out Rigidbody rb))
         {

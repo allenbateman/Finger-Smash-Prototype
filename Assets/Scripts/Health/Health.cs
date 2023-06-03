@@ -44,4 +44,9 @@ public class Health : MonoBehaviour
         this.health = health;
         maxHealth = health;
     }
+
+    public void ResetHealth()
+    {
+        SetHealth(maxHealth);
+    }
 }

@@ -71,4 +71,9 @@ public class Spawner : MonoBehaviour
     {
         CanSpawn = can_spawn;
     }
+
+    public void ResetTimer()
+    {
+        timer = spawnTime;
+    }
 }

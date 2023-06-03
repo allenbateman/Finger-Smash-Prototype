@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     private GameObject tower;
 
+    private GameObject gameEntitiesGO;
+
     [SerializeField] private GameObject fireChild;
 
     private float rateOfFire;
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         Init();
+        gameEntitiesGO = GameManager.Instance.gameEntitiesGO;
     }
 
     public void Init()
@@ -55,6 +58,8 @@ public class Enemy : MonoBehaviour
             return;
 
         agent.SetDestination(tower.transform.position);
+
+        gameEntitiesGO = GameManager.Instance.gameEntitiesGO;
     }
 
     private void Update()
@@ -74,11 +79,10 @@ public class Enemy : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attack!");
         Vector3 dir = tower.transform.position - fireChild.transform.position;
         Quaternion quaternion = Quaternion.identity;
         quaternion.SetLookRotation(dir.normalized);
-        GameObject go = GameObject.Instantiate(attack, fireChild.transform.position, quaternion);
+        GameObject go = GameObject.Instantiate(attack, fireChild.transform.position, quaternion, gameEntitiesGO.transform);
 
         if (go.TryGetComponent(out Rigidbody rb))
         {
