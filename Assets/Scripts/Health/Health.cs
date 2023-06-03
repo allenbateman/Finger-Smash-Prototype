@@ -5,7 +5,8 @@ public class Health : MonoBehaviour
 {
     [SerializeField] int health;
     [SerializeField] private GameObject goldParticlePrefab;
-    
+    [SerializeField] HealthBar healthBar;
+
     public int maxHealth;
     private bool isAlive;
     // Start is called before the first frame update
