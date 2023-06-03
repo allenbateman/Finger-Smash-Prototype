@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
         if (tower == null)
             return;
 
-        fireChild = transform.GetChild(0).gameObject;
+        fireChild = transform.GetChild(0).GetChild(1).gameObject;
         agent.SetDestination(tower.transform.position);
     }
 

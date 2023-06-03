@@ -15,9 +15,8 @@ public class Tower : MonoBehaviour
     private SphereCollider m_Collider;
     public int maxTargets = 4;
     public float rateOfFire = 1.0f;
+    public int damage = 1;
 
-    [SerializeField] int rayDamage = 1;
-    [SerializeField] int projectileDamage = 10; 
     private void Awake()
     {
         TryGetComponent(out m_Collider);
@@ -53,7 +52,7 @@ public class Tower : MonoBehaviour
         go.transform.position = new Vector3(gameObject.transform.position.x, 3, gameObject.transform.position.z);
 
         target.target = targetGo;
-        target.damage = rayDamage;
+        target.damage = damage;
         target.rateOfFire = rateOfFire;
         target.SetDebugDraw(true);
 

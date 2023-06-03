@@ -15,10 +15,10 @@ public class Damagable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Receive rayDamage
+        // Receive damage
         if (other.gameObject.TryGetComponent(out Damage damage))
         {
-            // Don't do rayDamage to ourselves
+            // Don't do damage to ourselves
             if (hashCodeTag == damage.ownerHashCode)
                 return;
 

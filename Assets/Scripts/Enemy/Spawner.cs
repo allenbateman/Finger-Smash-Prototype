@@ -14,6 +14,8 @@ public class Spawner : MonoBehaviour
     public float maxDistance = 10f;
     public int maxAttempts = 50;
 
+    bool CanSpawn;
+
     void Start()
     {
         timer = spawnTime;
@@ -23,7 +25,7 @@ public class Spawner : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > spawnTime) {
+        if (timer > spawnTime && CanSpawn) {
             Vector3 pos = GetRandomPosition();
             Quaternion rot = Quaternion.LookRotation(pos, Vector3.up);
             enemyManager.SpawnEnemy(pos, rot);
@@ -60,5 +62,10 @@ public class Spawner : MonoBehaviour
         }
 
         return randomPosition;
+    }
+
+    public void Spawn(bool can_spawn)
+    {
+        CanSpawn = can_spawn;
     }
 }
