@@ -182,7 +182,7 @@ Transform:
   m_Children:
   - {fileID: 1645773830670153036}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &4028973039558339424
 NavMeshAgent:
@@ -236,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   uiText: {fileID: 0}
+  goldParticlePrefab: {fileID: 1320088030690355248, guid: ca6cbfeb8dbfa694896abcbb3c102b44, type: 3}
   maxHealth: 0
 --- !u!114 &1531995249
 MonoBehaviour:

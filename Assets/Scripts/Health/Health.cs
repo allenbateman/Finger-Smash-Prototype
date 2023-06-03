@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] int health;
     public TMPro.TextMeshPro uiText;
-
+    [SerializeField] private GameObject goldParticlePrefab;
     public int maxHealth;
     private bool isAlive;
     // Start is called before the first frame update
@@ -22,20 +22,17 @@ public class Health : MonoBehaviour
     {
         if(uiText)
             uiText.text = health.ToString();
-
-        if (!isAlive)
-            Destroy(gameObject);
-
-        if (health <= 0)
-            isAlive = false;
     }
 
     public void DoDamage(int damage)
     {
-        if (isAlive)
+        health -= damage;
+        Debug.Log("Damage: " + damage + " -- Health: " + health);
+        if (health <= 0)
         {
-            Debug.Log("Damage: " + damage + " -- Health: " + health);
-            health -= damage;
+            isAlive = false;
+            Instantiate(goldParticlePrefab,transform);
+            Destroy(gameObject);
         }
     }
 
