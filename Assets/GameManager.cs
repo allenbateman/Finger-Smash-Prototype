@@ -122,4 +122,17 @@ public class GameManager : MonoBehaviour
             Destroy(gameEntitiesGO.transform.GetChild(i).gameObject);       
         }
     }
+
+    public Transform GetEntityTransform()
+    {
+
+        if(gameEntitiesGO == null)
+        {
+            return transform;
+        }
+        else
+        {
+            return gameEntitiesGO.transform;
+        }
+    }
 }

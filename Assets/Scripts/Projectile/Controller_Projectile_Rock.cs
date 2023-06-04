@@ -9,6 +9,8 @@ public class Controller_Projectile_Rock : MonoBehaviour
     private ParticleSystem explosionParticle;
     private Rigidbody body;
 
+    public GameObject explosionPrefab;
+
     public int damage {  get; private set; }    
     public void SetDamage(int damage) { this.damage = damage; }
 
@@ -55,6 +57,9 @@ public class Controller_Projectile_Rock : MonoBehaviour
             hasEnabledExplosion = true;
             ExplosionGameObject.SetActive(true);
 
+
+            GameObject  go =   Instantiate(explosionPrefab);
+            go.transform.position = transform.position;
             // Deatach explosion and it's particle
             body.velocity = Vector3.zero;
             GetComponent<Renderer>().enabled = false;   
