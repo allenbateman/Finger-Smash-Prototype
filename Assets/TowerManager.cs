@@ -27,16 +27,21 @@ public class TowerManager : MonoBehaviour
 
     void ActivateTower(int level)
     {
-        towerLevel_1.GetComponent<Health>().ResetHealth();
-        towerLevel_2.GetComponent<Health>().ResetHealth();
-        towerLevel_3.GetComponent<Health>().ResetHealth();
-
         if (towerLevel_1)
-            towerLevel_1.SetActive(false);
+        {
+            towerLevel_1.GetComponent<Health>().ResetHealth();
+            towerLevel_1.SetActive(false); 
+        }
         if (towerLevel_2)
-            towerLevel_2.SetActive(false);
+        {
+            towerLevel_2.GetComponent<Health>().ResetHealth();
+            towerLevel_2.SetActive(false); 
+        }
         if (towerLevel_3)
-            towerLevel_3.SetActive(false);
+        {
+            towerLevel_3.GetComponent<Health>().ResetHealth();
+            towerLevel_3.SetActive(false); 
+        }
 
         switch (level)
         {
