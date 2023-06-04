@@ -18,13 +18,11 @@ public class ShootProjectile : MonoBehaviour
     {
         if (TryGetComponent(out tap))
             tap.hitAction += Shoot;
-
-        gameEntitiesGO = GameManager.Instance.gameEntitiesGO;
     }
 
     private void Start()
     {
-        gameEntitiesGO = GameManager.Instance.gameEntitiesGO;
+
     }
 
     private void Update()
@@ -54,7 +52,7 @@ public class ShootProjectile : MonoBehaviour
 
         canShoot = false;
 
-        GameObject go = Instantiate(projectile, gameEntitiesGO.transform);
+        GameObject go = Instantiate(projectile, GameManager.Instance.GetEntityTransform());
         go.transform.position = towerTransform.position;
 
         Vector3 direction = position - go.transform.position;

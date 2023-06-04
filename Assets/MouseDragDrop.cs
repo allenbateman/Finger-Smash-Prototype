@@ -82,7 +82,7 @@ public class MouseDragDrop : MonoBehaviour
 
             Debug.Log(force);
             Rigidbody rb;
-            if (draggObj.TryGetComponent<Rigidbody>(out rb))
+            if (draggObj != null && draggObj.TryGetComponent<Rigidbody>(out rb))
             {
                 rb.useGravity = true;
                 rb.AddForce(force,ForceMode.Impulse); 

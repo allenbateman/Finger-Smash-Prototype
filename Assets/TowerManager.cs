@@ -21,7 +21,7 @@ public class TowerManager : MonoBehaviour
 
     public void ResetTowerLevel()
     {
-        level = 0;
+        level = 1;
         ActivateTower(level);
     }
 
