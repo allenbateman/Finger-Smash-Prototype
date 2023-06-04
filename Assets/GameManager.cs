@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         currentGold = 0;
         AddGold(0);
 
-        Debug.Log("Button cliked");
+        Time.timeScale = 1;
     }   
 
     public void OnMainMenu()

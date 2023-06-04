@@ -61,9 +61,10 @@ public class MouseDragDrop : MonoBehaviour
                 
         }
         endMousePos = Input.mousePosition;
-        if (dragging)
+        if (dragging && draggObj != null)
         {
             Vector2 mouseDir = endMousePos - initialMousePos;
+            
             draggObj.transform.position = hitPos + new Vector3(0,1+ mouseDir.magnitude * 0.1f, 0);
 
         }
