@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameEntitiesGO;
 
     private int currentGold = 0;
+
+    public int[] towerCosts;
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -25,6 +27,10 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         gameEntitiesGO = new GameObject("Entities go");
+
+
+        gameEntitiesGO.transform.parent = transform;
+
     }
     void Start()
     {
@@ -37,6 +43,35 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void UpgradeTower()
+    {
+  
+       switch(towerManager.GetLevel())
+       {
+            case 1:
+                if (towerCosts[0] <= currentGold)
+                {
+                    towerManager.UpgradeTower();
+                    currentGold -= towerCosts[0];
+                    goldCounter.UpdateText(currentGold);
+                }
+                break;
+
+            case 2:
+                if (towerCosts[1] <= currentGold)
+                {
+                    towerManager.UpgradeTower();
+                    currentGold -= towerCosts[1];
+                    goldCounter.UpdateText(currentGold);
+                }
+                break;
+            case 3:
+                return;
+                break;
+            default:
+                return;
+       }
+    }
     public void AddGold(int amount)
     {
         currentGold += amount;

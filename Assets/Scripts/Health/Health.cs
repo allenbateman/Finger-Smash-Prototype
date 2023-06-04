@@ -27,10 +27,14 @@ public class Health : MonoBehaviour
         {
             isAlive = false;
             GameManager.Instance.AddGold(goldValue);
-            GameObject particle =  Instantiate(goldParticlePrefab);
-            TextMesh text = particle.GetComponentInChildren<TextMesh>();
-            text.text = "+" + goldValue.ToString();
-            particle.transform.position = transform.position;
+
+            if (goldParticlePrefab != null)
+            {
+                GameObject particle = Instantiate(goldParticlePrefab);
+                TextMesh text = particle.GetComponentInChildren<TextMesh>();
+                text.text = "+" + goldValue.ToString();
+                particle.transform.position = transform.position;
+            }
             Destroy(gameObject);
         }
     }

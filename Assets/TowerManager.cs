@@ -25,6 +25,10 @@ public class TowerManager : MonoBehaviour
         ActivateTower(level);
     }
 
+    public int GetLevel()
+    {
+        return level;
+    }
     void ActivateTower(int level)
     {
         if (towerLevel_1)
