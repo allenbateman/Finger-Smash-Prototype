@@ -40,7 +40,7 @@ public class Target : MonoBehaviour
             timer = 0.0f;
         }
 
-        if (!targetHealth.IsAlive())
+        if (target != null &&!targetHealth.IsAlive())
             Die();
     }
 

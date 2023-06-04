@@ -66,10 +66,13 @@ public class Tower : MonoBehaviour
     private void OnTargetDeath(Target target)
     {
         // Remove the dead enemy from the target queue
-        if (targets.Contains(target))
+        if (target != null && targets.Contains(target))
         {
             Target tmp = targets.Dequeue();
-            idSet.Remove(tmp.gameObject.GetInstanceID());
+            if (tmp != null)
+            {
+                idSet.Remove(tmp.gameObject.GetInstanceID());
+            }
         }
     }
 

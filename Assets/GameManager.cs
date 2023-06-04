@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         Instance = this;
+
+        gameEntitiesGO = new GameObject("Entities go");
     }
     void Start()
     {
