@@ -12,6 +12,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private List<Spawner> spawners;
 
     private GameObject gameEntitiesGO;
+    public GameObject spawnParticle;
+    private Queue<GameObject> spawnParticles = new Queue<GameObject>(); 
     void Awake()
     {
         instance = this;
@@ -20,10 +22,16 @@ public class EnemyManager : MonoBehaviour
 
     public Enemy SpawnEnemy(Vector3 pos, Quaternion rot)
     {
+        // Setting the spawning particle
+        if (spawnParticles.Count >= spawners.Count)
+        {
+            Destroy(spawnParticles.Dequeue());
+        }
+
+        spawnParticles.Enqueue(Instantiate(spawnParticle, pos, rot, gameEntitiesGO.transform));
+
         GameObject newEnemy = Instantiate(enemyPrefab, pos, rot, gameEntitiesGO.transform);
-
-        // TODO: set a starting position in the navmesh
-
+        
         Enemy enemyCmp;
         newEnemy.TryGetComponent<Enemy>(out enemyCmp);
         enemies.Add(newEnemy);

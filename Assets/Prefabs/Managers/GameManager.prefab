@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5775822703543405148
 MonoBehaviour:
@@ -48,4 +48,8 @@ MonoBehaviour:
   GameplayCanvas: {fileID: 0}
   GameOverCanvas: {fileID: 0}
   PauseCanvas: {fileID: 0}
-  EnemyManager: {fileID: 0}
+  enemyManager: {fileID: 0}
+  goldCounter: {fileID: 0}
+  towerManager: {fileID: 0}
+  gameEntitiesGO: {fileID: 0}
+  towerCosts: 1900000032000000
