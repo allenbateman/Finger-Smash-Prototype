@@ -53,6 +53,12 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         // Useful for UI purposes, visual cues, etc.
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i] == null)
+                enemies.RemoveAt(i);
+        }
+
         if (enemies.Count > maxEnemiesLimit)
         {
             enemiesLimit = true;
