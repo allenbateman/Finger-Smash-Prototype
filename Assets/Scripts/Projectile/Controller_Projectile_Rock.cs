@@ -18,16 +18,18 @@ public class Controller_Projectile_Rock : MonoBehaviour
     private bool hasEnabledExplosion = false;
     private float explosionCounter = 0.0f;
 
-    private int groundTagHashCode;
-    private int enemyTagHashCode;
+    //private int groundTagHashCode;
+    //private int enemyTagHashCode;
+    private int towerTagHashCode;
 
     private void Awake()
     {
         ExplosionGameObject.SetActive(false);
         ExplosionGameObject.TryGetComponent(out explosionParticle);
         TryGetComponent(out body);
-        groundTagHashCode = "Ground".GetHashCode();
-        enemyTagHashCode = "Enemy".GetHashCode();
+        //groundTagHashCode = "Ground".GetHashCode();
+        //enemyTagHashCode = "Enemy".GetHashCode();
+        towerTagHashCode = "Tower".GetHashCode();
     }
 
     private void Update()
@@ -38,6 +40,7 @@ public class Controller_Projectile_Rock : MonoBehaviour
             {
                 // Disable explosion
                 GameObject.Destroy(ExplosionGameObject.gameObject);
+                GameObject.Destroy(this.gameObject);
                 explosionCounter = 0.0f;
                 hasEnabledExplosion = false;
             }
@@ -51,15 +54,16 @@ public class Controller_Projectile_Rock : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         int code = collision.transform.tag.GetHashCode();
-        if (code == groundTagHashCode || code == enemyTagHashCode)
-        {
+        if (code == towerTagHashCode)
+            return;
+        
             // Enable explosion
             hasEnabledExplosion = true;
             ExplosionGameObject.SetActive(true);
 
-
-            GameObject  go =   Instantiate(explosionPrefab);
+            GameObject go = Instantiate(explosionPrefab);
             go.transform.position = transform.position;
+
             // Deatach explosion and it's particle
             body.velocity = Vector3.zero;
             GetComponent<Renderer>().enabled = false;   
@@ -67,7 +71,7 @@ public class Controller_Projectile_Rock : MonoBehaviour
 
             if (explosionParticle)
                 explosionParticle.Play();
-        }
+        
     }
 
     //// Explosion collision callback
