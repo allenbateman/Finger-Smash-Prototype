@@ -129,8 +129,10 @@ MonoBehaviour:
   isMelee: 0
   attack: {fileID: 4465376132334763931, guid: 7cf96b64cd0818341ac7bdda5a767d32, type: 3}
   enemyStats: {fileID: 11400000, guid: 22f309f46fdb83348a0f1ca9d29ff8c6, type: 2}
+  fallParticlePrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   fireChild: {fileID: 7589185051926630718}
   launchAngle: 45
+  Dragged: 0
 --- !u!114 &5834311024623415012
 MonoBehaviour:
   m_ObjectHideFlags: 0

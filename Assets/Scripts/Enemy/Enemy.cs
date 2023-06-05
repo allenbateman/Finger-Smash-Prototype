@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     private GameObject tower;
 
     private GameObject gameEntitiesGO;
+    public GameObject fallParticlePrefab;
 
     [SerializeField] private GameObject fireChild;
 
@@ -26,12 +27,12 @@ public class Enemy : MonoBehaviour
 
     public float launchAngle = 45f;
 
+    public bool Dragged = false;
+
     private void Awake()
     {
         Init();
-        gameEntitiesGO = GameManager.Instance.gameEntitiesGO;
     }
-
     public void Init()
     {
         TryGetComponent(out health);
@@ -118,5 +119,20 @@ public class Enemy : MonoBehaviour
     {
         Vector3 projectileVelocity = direction / time;
         return projectileVelocity;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(Dragged && collision.transform.CompareTag("Ground"))
+        {
+            health.DoDamage((int)GetComponent<Rigidbody>().velocity.magnitude * 2);
+
+            GetComponent<NavMeshAgent>().enabled = true;
+
+            if (fallParticlePrefab != null)
+            { 
+                Instantiate(fallParticlePrefab, GameManager.Instance.GetEntityTransform()).transform.position = transform.position; 
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@ public class ShootProjectile : MonoBehaviour
     public float cooldownTime = 1.5f;
     bool canShoot = false;
     private GameObject gameEntitiesGO;
-
+    public float force;
     private void Awake()
     {
         if (TryGetComponent(out tap))
@@ -66,7 +66,7 @@ public class ShootProjectile : MonoBehaviour
 
         if (go.TryGetComponent(out Rigidbody rb))
         {
-            rb.AddForce(direction, ForceMode.Impulse);
+            rb.AddForce(direction * force, ForceMode.Impulse);
         }
     }
 }

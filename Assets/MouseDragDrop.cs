@@ -15,6 +15,8 @@ public class MouseDragDrop : MonoBehaviour
 
     private Vector2 initialMousePos;
     private Vector2 endMousePos;
+
+    public float maxHeight = 10;
     void Start()
     {
         
@@ -43,13 +45,23 @@ public class MouseDragDrop : MonoBehaviour
                     initialMousePos = Input.mousePosition;
                     
                     NavMeshAgent agent;
-                    if (draggObj.transform.parent.TryGetComponent<NavMeshAgent>(out agent))
+                    if (draggObj.transform.TryGetComponent<NavMeshAgent>(out agent))
                     {
                         agent.enabled = false;
                     }
                     else
                     {
                         Debug.Log("Failed to get agent");
+                    }
+
+                    Enemy enemy;
+                    if (draggObj.transform.TryGetComponent<Enemy>(out enemy))
+                    {
+                        enemy.Dragged = true;
+                    }
+                    else
+                    {
+                        Debug.Log("Failed to get enemy");
                     }
                 }
                 else if(!hit.collider.CompareTag("Enemy"))
@@ -64,8 +76,16 @@ public class MouseDragDrop : MonoBehaviour
         if (dragging && draggObj != null)
         {
             Vector2 mouseDir = endMousePos - initialMousePos;
-            
-            draggObj.transform.position = hitPos + new Vector3(0,1+ mouseDir.magnitude * 0.1f, 0);
+
+            float height = 1 + mouseDir.magnitude * 0.01f;
+            if (height >= maxHeight)
+            { 
+                draggObj.transform.position = hitPos + new Vector3(0, maxHeight, 0);
+            }
+            else
+            {
+                draggObj.transform.position = hitPos + new Vector3(0, height, 0);
+            }
 
         }
 
