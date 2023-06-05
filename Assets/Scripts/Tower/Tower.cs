@@ -17,6 +17,8 @@ public class Tower : MonoBehaviour
 
     [SerializeField] int rayDamage = 1;
 
+    public Health health;
+
     private GameObject gameEntitiesGO;
     public static int projectileDamage { get; private set; } = 150;
 
@@ -29,10 +31,14 @@ public class Tower : MonoBehaviour
     {
         // Subscribe to the target's death event
         Target.OnDeath += OnTargetDeath;
+
+        health = GetComponent<Health>();
     }
 
     void Update()
     {
+        if (!health.IsAlive())
+            GameManager.Instance.OnGameOver();
         
     }
     private void OnDestroy()

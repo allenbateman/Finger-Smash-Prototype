@@ -18,6 +18,12 @@ public class TowerManager : MonoBehaviour
         ActivateTower(level);
     }
 
+    private void Update()
+    {
+        
+    }
+
+
     public void ResetTowerLevel()
     {
         level = 1;

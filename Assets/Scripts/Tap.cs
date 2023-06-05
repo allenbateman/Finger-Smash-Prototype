@@ -15,7 +15,7 @@ public class Tap : MonoBehaviour
     #endregion
 
     public Action<Vector3> hitAction;
-
+    bool canShoot;
     void Start()
     {
         previewParticle.SetActive(false);
@@ -24,6 +24,8 @@ public class Tap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         Vector3 vec = Vector3.zero;
 
         if (Input.touchCount != 1)
@@ -36,7 +38,7 @@ public class Tap : MonoBehaviour
 
         Ray raycast = Camera.main.ScreenPointToRay(pos);
         hasHit = Physics.Raycast(raycast, out hit);
-
+        bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
         if (touch.phase == TouchPhase.Began)
         {
             if (hasHit)
@@ -63,7 +65,7 @@ public class Tap : MonoBehaviour
         {
             Debug.Log("TouchPhase Ended");
             previewParticle.SetActive(false);
-            if(hasHit)
+            if(hasHit && !isOverUI)
                 SendEvent();
         }
     }
