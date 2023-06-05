@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject GameOverCanvas;
     public GameObject PauseCanvas;
 
+    public AudioSource buttonsAudio;
+
     public EnemyManager enemyManager;
  
     public GoldCounter goldCounter;
@@ -93,6 +95,8 @@ public class GameManager : MonoBehaviour
         AddGold(0);
 
         Time.timeScale = 1;
+
+        buttonsAudio.Play();
     }   
 
     public void OnMainMenu()
@@ -109,6 +113,8 @@ public class GameManager : MonoBehaviour
         towerManager.ResetTowerLevel();
 
         Time.timeScale = 1;
+
+        buttonsAudio.Play();
     }
 
     public void OnGameOver()
@@ -123,6 +129,8 @@ public class GameManager : MonoBehaviour
         towerManager.ResetTowerLevel();
 
         Time.timeScale = 0;
+
+        buttonsAudio.Play();
     }
 
     public void OnPause()
@@ -135,6 +143,8 @@ public class GameManager : MonoBehaviour
         enemyManager.StopSpawning();
 
         Time.timeScale = 0;
+
+        buttonsAudio.Play();
     }
 
     public void OnContinue()
@@ -147,6 +157,8 @@ public class GameManager : MonoBehaviour
         enemyManager.StartSpawning();
 
         Time.timeScale = 1;
+
+        buttonsAudio.Play();
     }
 
     void DeleteAllEntities()
