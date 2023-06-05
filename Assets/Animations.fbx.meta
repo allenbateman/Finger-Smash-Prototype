@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 48be2be60a68a4c4fa9e9df67b3fd20b
+guid: c047599e156d38c418cdbd9173da7719
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -22,12 +22,25 @@ ModelImporter:
       : position error = 117.274315 mm\n\t'foot_r' : position error = 123.336510
       mm\n"
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'idle' has import animation warnings that might
+    animationImportWarnings: "\nClip 'walking' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'head' has translation animation that will
+      be discarded.\n\t'calf_l' has translation animation that will be discarded.\n\t'foot_l'
+      has translation animation that will be discarded.\n\t'calf_r' has translation
+      animation that will be discarded.\n\t'foot_r' has translation animation that
+      will be discarded.\n\nClip 'idle' has import animation warnings that might
       lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
-      retargeting quality.\n\t'head' has translation animation that will be discarded.\n\t'calf_l'
-      has translation animation that will be discarded.\n\t'foot_l' has translation
-      animation that will be discarded.\n\t'calf_r' has translation animation that
-      will be discarded.\n\t'foot_r' has translation animation that will be discarded.\n"
+      retargeting quality.\n\t'spine_02' has translation animation that will be discarded.\n\t'upperarm_l'
+      has translation animation that will be discarded.\n\t'upperarm_r' has translation
+      animation that will be discarded.\n\nClip 'ranged' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'upperarm_r' has translation animation that
+      will be discarded.\n\t'calf_l' has translation animation that will be discarded.\n\t'calf_r'
+      has translation animation that will be discarded.\n\nClip 'melee' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'foot_l' has translation animation
+      that will be discarded.\n\t'calf_r' has translation animation that will be
+      discarded.\n\t'foot_r' has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -41,11 +54,98 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
+      name: walking
+      takeName: walking
+      internalID: -3889830323219305035
+      firstFrame: 1
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
       name: idle
       takeName: idle
       internalID: -5252816984213320552
-      firstFrame: 1
-      lastFrame: 48
+      firstFrame: 49
+      lastFrame: 72
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ranged
+      takeName: ranged
+      internalID: 5259721567274272960
+      firstFrame: 73
+      lastFrame: 98
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: melee
+      takeName: melee
+      internalID: 5064597851218756214
+      firstFrame: 99
+      lastFrame: 146
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -85,7 +185,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1

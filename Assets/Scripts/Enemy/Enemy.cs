@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
 
     public bool Dragged = false;
 
+    private Animator animator;
+
     private void Awake()
     {
         Init();
@@ -37,6 +39,7 @@ public class Enemy : MonoBehaviour
     {
         TryGetComponent(out health);
         TryGetComponent(out agent);
+        TryGetComponent(out animator);
         tower = GameObject.FindGameObjectWithTag("Tower");
 
         if (isMelee)
@@ -72,7 +75,7 @@ public class Enemy : MonoBehaviour
         
         if (distance <= rangeOfFire && timer >= rateOfFire)
         {
-            Attack();
+            AttackAnim();
         }
 
         timer += Time.deltaTime;
@@ -104,6 +107,11 @@ public class Enemy : MonoBehaviour
             damage.damage = enemyStats.Enemy_Ranged_Damage;
             damage.ownerHashCode = tag.GetHashCode();
         }
+    }
+
+    void AttackAnim()
+    {
+        animator.Play("Attacking.Anim_Ranged");
 
         timer = 0.0f;
     }
