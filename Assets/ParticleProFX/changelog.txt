@@ -1,0 +1,45 @@
+======================================================
+
+
+		
+		Particle ProFX one
+
+		(c) 2014 doorfortyfour
+
+		www.doorfortyfour.com
+		support: mail@doorfortyfour.com
+
+======================================================
+
+1.2.2
+-----
+- bugfixes for unity 5
+- added 4 new bloodsplatter prefabs
+- added 4 new bloodsplatter texture sheets
+- added new sorting render layer script. This fixes some sorting issues.
+
+
+1.2.1
+---------
+- updated for unity 5
+
+1.2
+---------
+- added 12 new prefabs
+- added 2 new chain reactions
+- added 2 new texturesheets
+- modified move script
+- updated demoscene
+
+1.1
+---------
+
+- added 11 new prefabs
+- added 4 new texturesheets
+- added simple random position script (makes cool rocket animation in combination with the meteor script ;)
+- updated demoscene
+
+1.0
+_________
+
+- initial release

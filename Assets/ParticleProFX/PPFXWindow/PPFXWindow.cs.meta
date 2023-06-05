@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: d75c42ec022fb426598a772326c57538
+labels:
+- Fire
+- Flare
+- Fx
+- Particles
+- Shuriken
+- Smoke
+- Effects
+- Explosion
+- Beam
+- Spritesheet
+- Lightning
+- Chainreactions
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
