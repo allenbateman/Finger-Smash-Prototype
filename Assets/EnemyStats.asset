@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
   Enemy_Melee_Health: 150
-  Enemy_Melee_Damage: 5
+  Enemy_Melee_Damage: 10
   Enemy_Melee_RangeOfAttack: 8
   Enemy_Melee_RateOfAttack: 1
   Enemy_Ranged_Health: 30
-  Enemy_Ranged_Damage: 5
+  Enemy_Ranged_Damage: 10
   Enemy_Ranged_RangeOfAttack: 30
   Enemy_Ranged_RateOfAttack: 6

@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         MainMenuCanvas.SetActive(false);
         GameOverCanvas.SetActive(false);
         PauseCanvas.SetActive(false);
-
+        towerManager.ResetTowerLevel();
         enemyManager.StartSpawning();
 
         currentGold = 0;
