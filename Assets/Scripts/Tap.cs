@@ -15,7 +15,7 @@ public class Tap : MonoBehaviour
     #endregion
 
     public Action<Vector3> hitAction;
-
+    bool canShoot;
     void Start()
     {
         previewParticle.SetActive(false);
@@ -24,6 +24,8 @@ public class Tap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         Vector3 vec = Vector3.zero;
 
         if (Input.touchCount != 1)
@@ -63,7 +65,7 @@ public class Tap : MonoBehaviour
         {
             Debug.Log("TouchPhase Ended");
             previewParticle.SetActive(false);
-            if(hasHit && isOverUI)
+            if(hasHit && !isOverUI)
                 SendEvent();
         }
     }
