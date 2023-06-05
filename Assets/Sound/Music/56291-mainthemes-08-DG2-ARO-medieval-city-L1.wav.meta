@@ -15,7 +15,7 @@ AudioImporter:
   platformSettingOverrides:
     7:
       serializedVersion: 2
-      loadType: 2
+      loadType: 1
       sampleRateSetting: 1
       sampleRateOverride: 44100
       compressionFormat: 1

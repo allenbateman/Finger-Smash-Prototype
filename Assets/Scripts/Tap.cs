@@ -67,7 +67,7 @@ public class Tap : MonoBehaviour
             Debug.Log("TouchPhase Ended");
             previewParticle.SetActive(false);
             //if (hasHit && !isOverUI)
-            if (true)
+            if (hasHit)
             {
                 SendEvent();
                 gameObject.SetActive(false);

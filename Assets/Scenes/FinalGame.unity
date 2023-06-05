@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44319585, g: 0.49221593, b: 0.57169193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -306,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &99566477
 AudioSource:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f80b7a9ceae50ed44ae587e30b1dd746, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.339
+  m_Volume: 0.228
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -659,6 +659,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnGameOver
       objectReference: {fileID: 0}
+    - target: {fileID: 6854873882934421924, guid: 3ff46c9530eef0e4287b7eecdaa22d5a, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6854873883577668994, guid: 3ff46c9530eef0e4287b7eecdaa22d5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -874,13 +878,14 @@ MonoBehaviour:
   towerPrice: {fileID: 1025686851}
   RepairButton: {fileID: 1276473129}
   repairPrice: {fileID: 189979009}
-  repairCost: 25
+  repairCost: 100
   repairPurchaseSFX: {fileID: 8300000, guid: b68017696bcc2b740ad46fc1c9344817, type: 3}
   ability1Button: {fileID: 97967886}
   ability1PriceText: {fileID: 1104237773}
   ability1Cost: 150
   abilityPurchaseSFX: {fileID: 8300000, guid: 49f62c4c692449c47a9889f026990ec0, type: 3}
   ShootProjectile: {fileID: 2005043215}
+  tap: {fileID: 1218761470}
 --- !u!82 &708989808
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2014,6 +2019,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4212023607476083749, guid: c4a62c05af867c840a5e9972d0c557a5, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4212023607653361211, guid: c4a62c05af867c840a5e9972d0c557a5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3440,6 +3449,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1964852157563269334, guid: 6497ec92f64752341a4fcd8b589e9996, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4012,7 +4025,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049558407}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
   m_Name: 
@@ -4056,7 +4069,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049558407}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
   m_Name: 
