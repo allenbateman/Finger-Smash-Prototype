@@ -69,4 +69,28 @@ public class TowerManager : MonoBehaviour
                 break;
         }
     }
+    public void Repair()
+    {
+        switch (level)
+        {
+            case 1:
+                {
+                    if (towerLevel_1)
+                        towerLevel_1.GetComponent<Health>().ResetHealth();
+                }
+                break;
+            case 2:
+                {
+                    if (towerLevel_2)
+                        towerLevel_2.GetComponent<Health>().ResetHealth();
+                }
+                break;
+            case 3:
+                {
+                    if (towerLevel_3)
+                        towerLevel_3.GetComponent<Health>().ResetHealth();
+                }
+                break;
+        }
+    }
 }

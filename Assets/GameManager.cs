@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     private int currentGold = 0;
 
     public int[] towerCosts;
+
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -45,31 +47,25 @@ public class GameManager : MonoBehaviour
 
     public void UpgradeTower()
     {
-  
        switch(towerManager.GetLevel())
        {
-            case 1:
-                if (towerCosts[0] <= currentGold)
-                {
-                    towerManager.UpgradeTower();
-                    currentGold -= towerCosts[0];
-                    goldCounter.UpdateText(currentGold);
-                }
-                break;
+         case 1:
+             if (towerCosts[0] <= currentGold)
+             {
+                 towerManager.UpgradeTower();
+                 AddGold(-towerCosts[0]);
+             }
+             break;
 
-            case 2:
-                if (towerCosts[1] <= currentGold)
-                {
-                    towerManager.UpgradeTower();
-                    currentGold -= towerCosts[1];
-                    goldCounter.UpdateText(currentGold);
-                }
-                break;
-            case 3:
-                return;
-                break;
-            default:
-                return;
+         case 2:
+             if (towerCosts[1] <= currentGold)
+             {
+                 towerManager.UpgradeTower();
+                 AddGold(-towerCosts[1]);
+             }
+             break;
+         default:
+             return;
        }
     }
     public void AddGold(int amount)
@@ -78,6 +74,8 @@ public class GameManager : MonoBehaviour
 
         goldCounter.UpdateText(currentGold);
 
+
+        ShopManager.Instance.CheckPurchases();
     }
 
     public void OnStartGame()
@@ -171,5 +169,10 @@ public class GameManager : MonoBehaviour
         {
             return gameEntitiesGO.transform;
         }
+    }
+
+    public int GetCurrentGold()
+    {
+        return currentGold;
     }
 }
