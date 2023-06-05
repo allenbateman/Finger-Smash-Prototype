@@ -135,9 +135,10 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(Dragged && collision.transform.CompareTag("Ground"))
+        health.DoDamage((int)GetComponent<Rigidbody>().velocity.magnitude * 4);
+        if (Dragged && collision.transform.CompareTag("Ground"))
         {
-            health.DoDamage((int)GetComponent<Rigidbody>().velocity.magnitude * 2);
+          
 
             GetComponent<NavMeshAgent>().enabled = true;
 
