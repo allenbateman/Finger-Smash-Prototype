@@ -11,7 +11,8 @@ public class Spawner : MonoBehaviour
     private float timer = 0.0f;
     private EnemyManager enemyManager;
 
-    public float maxDistance = 10f;
+    public float minDistance = 10f;
+    public float maxDistance = 30f;
     public int maxAttempts = 50;
 
     bool CanSpawn = true;
@@ -52,7 +53,11 @@ public class Spawner : MonoBehaviour
             if (NavMesh.SamplePosition(newPosition, out hit, maxDistance, 3))
             {
                 randomPosition = hit.position;
-                break; // Exit the loop if a valid random position is found
+
+                if (Vector3.Distance(hit.position, transform.position) > minDistance)
+                {
+                    break; // Exit the loop if a valid random position is found
+                }
             }
 
             attempts++;

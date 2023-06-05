@@ -18,7 +18,7 @@ public class Tower : MonoBehaviour
     [SerializeField] int rayDamage = 1;
 
     private GameObject gameEntitiesGO;
-    public static int projectileDamage { get; private set; } = 10;
+    public static int projectileDamage { get; private set; } = 50;
 
     private void Awake()
     {

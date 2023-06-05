@@ -44,8 +44,6 @@ public class Tap : MonoBehaviour
                 if (hit.collider.tag == "Ground")
                 {
                     previewParticle.SetActive(true);
-                    Debug.Log("--- Touch began " + hit.transform.tag + " ---");
-                    Debug.Log("TouchPhase Began" + hit.point);
                 }
             }
         }
