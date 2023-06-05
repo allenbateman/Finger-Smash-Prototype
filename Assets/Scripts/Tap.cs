@@ -63,8 +63,8 @@ public class Tap : MonoBehaviour
         {
             Debug.Log("TouchPhase Ended");
             previewParticle.SetActive(false);
-
-            SendEvent();
+            if(hasHit)
+                SendEvent();
         }
     }
 

@@ -17,6 +17,13 @@ public class ShopManager : MonoBehaviour
     public TMP_Text repairPrice;
     public int repairCost = 1000;
 
+
+    public Button ability1Button;
+    public TMP_Text ability1PriceText;
+    public int ability1Cost= 50;
+
+
+    public ShootProjectile ShootProjectile;
     private void Awake()
     {
         Instance = this;
@@ -29,15 +36,9 @@ public class ShopManager : MonoBehaviour
     void Start()
     {
         repairPrice.SetText(repairCost.ToString() +"g");
+        ability1PriceText.SetText(ability1Cost.ToString() +"g");
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
     public void CheckPurchases()
     {
@@ -82,6 +83,16 @@ public class ShopManager : MonoBehaviour
             RepairButton.interactable = false;
         }
 
+
+        if (CurrentGold >= ability1Cost)
+        {
+            ability1Button.interactable = true;
+        }
+        else
+        {
+            ability1Button.interactable = false;
+        }
+
     }
 
     void UpdateTowerPrice()
@@ -99,13 +110,21 @@ public class ShopManager : MonoBehaviour
         upgradeButton.SetActive(false);
     }
 
+    public void PurchaseAttack()
+    {
+        if (GameManager.Instance.GetCurrentGold() >= ability1Cost)
+        {
+            GameManager.Instance.AddGold(-ability1Cost);
+            ShootProjectile.CanShoot();
+
+        }
+    }
 
     public void RepairTower()
     {
         if(GameManager.Instance.GetCurrentGold() >= repairCost)
         {
             GameManager.Instance.AddGold(-repairCost);
-
             GameManager.Instance.towerManager.Repair();
         }
     }

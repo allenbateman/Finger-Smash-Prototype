@@ -20,25 +20,6 @@ public class ShootProjectile : MonoBehaviour
             tap.hitAction += Shoot;
     }
 
-    private void Start()
-    {
-
-    }
-
-    private void Update()
-    {
-        if (!canShoot)
-        {
-            timer += Time.deltaTime;
-
-            if (timer > cooldownTime)
-            {
-                timer = 0.0f;
-                canShoot = true;
-            }
-        }
-    }
-
     private void OnDestroy()
     {
         if (tap != null)
@@ -68,5 +49,10 @@ public class ShootProjectile : MonoBehaviour
         {
             rb.AddForce(direction * force, ForceMode.Impulse);
         }
+    }
+
+    public void CanShoot()
+    {
+        canShoot = true;
     }
 }
