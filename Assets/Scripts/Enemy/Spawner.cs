@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer > spawnTime ) {
+        if (timer > spawnTime && enemyManager.enemiesLimit == false) {
             Vector3 pos = GetRandomPosition();
             Quaternion rot = Quaternion.LookRotation(pos, Vector3.up);
             enemyManager.SpawnEnemy(pos, rot, spawnMelee);

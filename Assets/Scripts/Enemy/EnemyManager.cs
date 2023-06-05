@@ -14,7 +14,9 @@ public class EnemyManager : MonoBehaviour
 
     private GameObject gameEntitiesGO;
     public GameObject spawnParticle;
-    private Queue<GameObject> spawnParticles = new Queue<GameObject>(); 
+    private Queue<GameObject> spawnParticles = new Queue<GameObject>();
+    public bool enemiesLimit = false;
+    public int maxEnemiesLimit = 15;
     void Awake()
     {
         instance = this;
@@ -51,6 +53,12 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         // Useful for UI purposes, visual cues, etc.
+        if (enemies.Count > maxEnemiesLimit)
+        {
+            enemiesLimit = true;
+        }
+        else
+            enemiesLimit = false;
     }
 
     public void StartSpawning()

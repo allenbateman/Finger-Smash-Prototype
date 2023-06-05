@@ -19,4 +19,4 @@ MonoBehaviour:
   Enemy_Ranged_Health: 30
   Enemy_Ranged_Damage: 5
   Enemy_Ranged_RangeOfAttack: 30
-  Enemy_Ranged_RateOfAttack: 4
+  Enemy_Ranged_RateOfAttack: 6
