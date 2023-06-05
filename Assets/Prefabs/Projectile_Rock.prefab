@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionGameObject: {fileID: 7039271594353989462}
   explosionPrefab: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
+  damage: 50
   explosionMaxTime: 0.5
 --- !u!114 &7512611666031993568
 MonoBehaviour:
@@ -328,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a5afb2144fd0e4c9f6e3dbbdba3dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 50
   ownerHashCode: 0
 --- !u!135 &8364256607167670284
 SphereCollider:

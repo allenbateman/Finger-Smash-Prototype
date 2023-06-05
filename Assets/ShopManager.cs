@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using TMPro;
 public class ShopManager : MonoBehaviour
 {
@@ -12,17 +12,24 @@ public class ShopManager : MonoBehaviour
 
     public static ShopManager Instance;
 
+
+    public Button RepairButton;
+    public TMP_Text repairPrice;
+    public int repairCost = 1000;
+
     private void Awake()
     {
         Instance = this;
 
         upgradeButton.SetActive(false);
         towerPrice.transform.gameObject.SetActive(false);
+        RepairButton.interactable = false;
     }
 
     void Start()
     {
-        
+        repairPrice.SetText(repairCost.ToString() +"g");
+
     }
 
     // Update is called once per frame
@@ -64,6 +71,17 @@ public class ShopManager : MonoBehaviour
             default:
                 return;
         }
+
+
+        if(CurrentGold >= repairCost)
+        {
+            RepairButton.interactable = true;
+        }
+        else
+        {
+            RepairButton.interactable = false;
+        }
+
     }
 
     void UpdateTowerPrice()
@@ -79,5 +97,16 @@ public class ShopManager : MonoBehaviour
     public void DisableUpgradeButton()
     {
         upgradeButton.SetActive(false);
+    }
+
+
+    public void RepairTower()
+    {
+        if(GameManager.Instance.GetCurrentGold() >= repairCost)
+        {
+            GameManager.Instance.AddGold(-repairCost);
+
+            GameManager.Instance.towerManager.Repair();
+        }
     }
 }

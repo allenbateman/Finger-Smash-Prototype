@@ -8,7 +8,6 @@ public class TowerManager : MonoBehaviour
     [SerializeField] private GameObject towerLevel_2;
     [SerializeField] private GameObject towerLevel_3;
     int level = 1;
-
     public void UpgradeTower()
     {
         level++;

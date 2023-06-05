@@ -629,6 +629,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeButton: {fileID: 968079092}
   towerPrice: {fileID: 1025686851}
+  RepairButton: {fileID: 1276473129}
+  repairPrice: {fileID: 189979009}
+  repairCost: 1000
 --- !u!4 &840740319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8179067873812843842, guid: 4a15cef560fd31140a8674c1f09a35bb, type: 3}
@@ -7646,7 +7649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4952233084979438505, guid: 97198941d9a717d40bba695132becc86, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4952564027637477619, guid: 97198941d9a717d40bba695132becc86, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9722,7 +9725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7159502131838072267, guid: 97198941d9a717d40bba695132becc86, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7164651467060476605, guid: 97198941d9a717d40bba695132becc86, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10162,7 +10165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7640625201117469499, guid: 97198941d9a717d40bba695132becc86, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7642035847007935207, guid: 97198941d9a717d40bba695132becc86, type: 3}
       propertyPath: m_StaticEditorFlags
