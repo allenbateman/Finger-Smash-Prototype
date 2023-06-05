@@ -103,7 +103,7 @@ public class Enemy : MonoBehaviour
             float projectileTime = CalculateProjectileTime(distance);
             Vector3 projectileVelocity = CalculateProjectileVelocity(direction, projectileTime);
 
-            rb.velocity = projectileVelocity;
+            rb.velocity = projectileVelocity * 2.0f;
         }
 
         if (go.TryGetComponent(out Damage damage))
