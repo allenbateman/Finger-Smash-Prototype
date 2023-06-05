@@ -43,6 +43,8 @@ public class MouseDragDrop : MonoBehaviour
                     hitPos = hitPos;
 
                     initialMousePos = Input.mousePosition;
+
+                    GetComponent<AudioSource>().Play();
                     
                     NavMeshAgent agent;
                     if (draggObj.transform.TryGetComponent<NavMeshAgent>(out agent))
@@ -58,6 +60,7 @@ public class MouseDragDrop : MonoBehaviour
                     if (draggObj.transform.TryGetComponent<Enemy>(out enemy))
                     {
                         enemy.Dragged = true;
+                        enemy.PlayAudioScream();
                     }
                     else
                     {

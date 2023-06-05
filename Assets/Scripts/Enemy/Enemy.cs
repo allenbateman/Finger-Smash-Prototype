@@ -31,6 +31,9 @@ public class Enemy : MonoBehaviour
 
     private Animator animator;
 
+    public AudioClip fallScreamSound;
+    public AudioClip hitGroundSound;
+
     private void Awake()
     {
         Init();
@@ -79,6 +82,7 @@ public class Enemy : MonoBehaviour
         }
 
         timer += Time.deltaTime;
+
     }
 
     void Attack()
@@ -139,8 +143,18 @@ public class Enemy : MonoBehaviour
 
             if (fallParticlePrefab != null)
             { 
-                Instantiate(fallParticlePrefab, GameManager.Instance.GetEntityTransform()).transform.position = transform.position; 
+                Instantiate(fallParticlePrefab, GameManager.Instance.GetEntityTransform()).transform.position = transform.position;
+                GetComponent<AudioSource>().clip = hitGroundSound;
+                GetComponent<AudioSource>().Play();
             }
         }
+    }
+
+    public void PlayAudioScream()
+    {
+
+        GetComponent<AudioSource>().clip = fallScreamSound;
+        GetComponent<AudioSource>().Play();
+        
     }
 }

@@ -16,11 +16,12 @@ public class ShopManager : MonoBehaviour
     public Button RepairButton;
     public TMP_Text repairPrice;
     public int repairCost = 1000;
-
+    public AudioClip repairPurchaseSFX;
 
     public Button ability1Button;
     public TMP_Text ability1PriceText;
     public int ability1Cost= 50;
+    public AudioClip abilityPurchaseSFX;
 
 
     public ShootProjectile ShootProjectile;
@@ -116,16 +117,19 @@ public class ShopManager : MonoBehaviour
         {
             GameManager.Instance.AddGold(-ability1Cost);
             ShootProjectile.CanShoot();
-
+            GetComponent<AudioSource>().clip = abilityPurchaseSFX;
+            GetComponent<AudioSource>().Play();
         }
     }
 
     public void RepairTower()
     {
-        if(GameManager.Instance.GetCurrentGold() >= repairCost)
+        if (GameManager.Instance.GetCurrentGold() >= repairCost)
         {
             GameManager.Instance.AddGold(-repairCost);
             GameManager.Instance.towerManager.Repair();
+            GetComponent<AudioSource>().clip = repairPurchaseSFX;
+            GetComponent<AudioSource>().Play();
         }
     }
 }

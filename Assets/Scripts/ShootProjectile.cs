@@ -14,6 +14,8 @@ public class ShootProjectile : MonoBehaviour
     bool canShoot = false;
     private GameObject gameEntitiesGO;
     public float force;
+
+    public List<AudioClip> shootSound;
     private void Awake()
     {
         if (TryGetComponent(out tap))
@@ -30,6 +32,11 @@ public class ShootProjectile : MonoBehaviour
     {
         if (!canShoot)
             return;
+        AudioClip sound = shootSound[Random.Range(0, shootSound.Count)];
+        GetComponent<AudioSource>().clip = sound;
+        GetComponent<AudioSource>().Play();
+
+
 
         canShoot = false;
 

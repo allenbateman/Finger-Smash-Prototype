@@ -64,6 +64,7 @@ public class Controller_Projectile_Rock : MonoBehaviour
 
             if (explosionParticle)
                 explosionParticle.Play();
+            GetComponent<AudioSource>().Play();
         
     }
 }
