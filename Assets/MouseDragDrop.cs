@@ -40,7 +40,6 @@ public class MouseDragDrop : MonoBehaviour
                     vec = new Vector3(pos.x, pos.y, dist);
                     offset = draggObj.transform.position - vec;
                     dragging = true;
-                    hitPos = hitPos;
 
                     initialMousePos = Input.mousePosition;
 

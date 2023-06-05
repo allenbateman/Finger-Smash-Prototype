@@ -18,7 +18,7 @@ public class Tower : MonoBehaviour
     [SerializeField] int rayDamage = 1;
 
     private GameObject gameEntitiesGO;
-    public static int projectileDamage { get; private set; } = 50;
+    public static int projectileDamage { get; private set; } = 150;
 
     private void Awake()
     {
@@ -60,7 +60,7 @@ public class Tower : MonoBehaviour
 
         target.target = targetGo;
         target.tickDamage = rayDamage;
-        target.SetDebugDraw(true);
+        //target.SetDebugDraw(true);
 
     }
     private void OnTargetDeath(Target target)

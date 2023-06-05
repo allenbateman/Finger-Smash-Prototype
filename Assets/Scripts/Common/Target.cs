@@ -6,6 +6,7 @@ public class Target : MonoBehaviour
 {
     public GameObject target;
     public GameObject attackPrefab;
+    public ParticleSystem onHitParticle;
 
     private LineDrawer lineDrawer;
     private Health targetHealth;
@@ -41,6 +42,9 @@ public class Target : MonoBehaviour
         }
 
         if (target != null &&!targetHealth.IsAlive())
+            Die();
+
+        if (target == null)
             Die();
     }
 

@@ -7,9 +7,10 @@ public class EnemyManager : MonoBehaviour
 {
     // Singleton manager
     public static EnemyManager instance;
-    [SerializeField] GameObject enemyPrefab;
     public List<GameObject> enemies = new List<GameObject>();
     [SerializeField] private List<Spawner> spawners;
+    [SerializeField] GameObject enemyRangedPrefab;
+    [SerializeField] GameObject enemyMeleePrefab;
 
     private GameObject gameEntitiesGO;
     public GameObject spawnParticle;
@@ -20,7 +21,7 @@ public class EnemyManager : MonoBehaviour
         gameEntitiesGO = GameManager.Instance.gameEntitiesGO;
     }
 
-    public Enemy SpawnEnemy(Vector3 pos, Quaternion rot)
+    public Enemy SpawnEnemy(Vector3 pos, Quaternion rot, bool isMelee)
     {
         // Setting the spawning particle
         if (spawnParticles.Count >= spawners.Count)
@@ -30,7 +31,16 @@ public class EnemyManager : MonoBehaviour
 
         spawnParticles.Enqueue(Instantiate(spawnParticle, pos, rot, gameEntitiesGO.transform));
 
-        GameObject newEnemy = Instantiate(enemyPrefab, pos, rot, gameEntitiesGO.transform);
+        GameObject newEnemy = null;
+        if (isMelee)
+        {
+            newEnemy = Instantiate(enemyMeleePrefab, pos, rot, gameEntitiesGO.transform);
+
+        }
+        else
+        {
+            newEnemy = Instantiate(enemyRangedPrefab, pos, rot, gameEntitiesGO.transform);
+        }
         
         Enemy enemyCmp;
         newEnemy.TryGetComponent<Enemy>(out enemyCmp);

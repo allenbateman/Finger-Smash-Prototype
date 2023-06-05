@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
     public int maxAttempts = 50;
 
     bool CanSpawn = true;
+    public bool spawnMelee = false;
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class Spawner : MonoBehaviour
         if (timer > spawnTime ) {
             Vector3 pos = GetRandomPosition();
             Quaternion rot = Quaternion.LookRotation(pos, Vector3.up);
-            enemyManager.SpawnEnemy(pos, rot);
+            enemyManager.SpawnEnemy(pos, rot, spawnMelee);
             timer = 0.0f;   
         }
     }

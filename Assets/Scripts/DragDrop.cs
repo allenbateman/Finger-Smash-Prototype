@@ -3,8 +3,6 @@ using UnityEngine;
 
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
 
 public class DragDrop : MonoBehaviour
 {
@@ -45,9 +43,6 @@ public class DragDrop : MonoBehaviour
                     vec = new Vector3(pos.x, pos.y, dist);
                     offset = draggObj.transform.position - vec;
                     dragging = true;
-                    // Debug.Log("Touch" + hit.transform.tag);
-                    // Debug.Log(draggTransform.position);
-                    hitPos = hitPos;
 
                     initialMousePos = Input.mousePosition;
 
