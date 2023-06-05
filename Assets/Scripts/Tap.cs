@@ -36,7 +36,7 @@ public class Tap : MonoBehaviour
 
         Ray raycast = Camera.main.ScreenPointToRay(pos);
         hasHit = Physics.Raycast(raycast, out hit);
-
+        bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
         if (touch.phase == TouchPhase.Began)
         {
             if (hasHit)
@@ -63,7 +63,7 @@ public class Tap : MonoBehaviour
         {
             Debug.Log("TouchPhase Ended");
             previewParticle.SetActive(false);
-            if(hasHit)
+            if(hasHit && isOverUI)
                 SendEvent();
         }
     }
