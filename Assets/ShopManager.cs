@@ -25,6 +25,7 @@ public class ShopManager : MonoBehaviour
 
 
     public ShootProjectile ShootProjectile;
+    public GameObject tap;
     private void Awake()
     {
         Instance = this;
@@ -119,6 +120,7 @@ public class ShopManager : MonoBehaviour
             ShootProjectile.CanShoot();
             GetComponent<AudioSource>().clip = abilityPurchaseSFX;
             GetComponent<AudioSource>().Play();
+            tap.SetActive(true);
         }
     }
 

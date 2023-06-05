@@ -19,6 +19,7 @@ public class Tap : MonoBehaviour
     void Start()
     {
         previewParticle.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -65,8 +66,13 @@ public class Tap : MonoBehaviour
         {
             Debug.Log("TouchPhase Ended");
             previewParticle.SetActive(false);
-            if(hasHit && !isOverUI)
+            //if (hasHit && !isOverUI)
+            if (true)
+            {
                 SendEvent();
+                gameObject.SetActive(false);
+            }
+            
         }
     }
 

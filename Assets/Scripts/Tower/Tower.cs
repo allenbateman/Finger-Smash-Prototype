@@ -17,7 +17,7 @@ public class Tower : MonoBehaviour
 
     [SerializeField] int rayDamage = 1;
 
-    public Health health;
+    private Health health;
 
     private GameObject gameEntitiesGO;
     public static int projectileDamage { get; private set; } = 150;
