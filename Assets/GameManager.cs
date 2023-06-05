@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     public int[] towerCosts;
 
-
+    public AudioClip towerLevelUpSound;
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -56,7 +56,11 @@ public class GameManager : MonoBehaviour
              {
                  towerManager.UpgradeTower();
                  AddGold(-towerCosts[0]);
-             }
+                    GetComponent<AudioSource>().clip = towerLevelUpSound;
+                    GetComponent<AudioSource>().Play();
+
+
+                }
              break;
 
          case 2:
@@ -64,7 +68,9 @@ public class GameManager : MonoBehaviour
              {
                  towerManager.UpgradeTower();
                  AddGold(-towerCosts[1]);
-             }
+                    GetComponent<AudioSource>().clip = towerLevelUpSound;
+                    GetComponent<AudioSource>().Play();
+                }
              break;
          default:
              return;
