@@ -18,8 +18,8 @@ public class Controller_Projectile_Rock : MonoBehaviour
     private bool hasEnabledExplosion = false;
     private float explosionCounter = 0.0f;
 
-    //private int groundTagHashCode;
-    //private int enemyTagHashCode;
+    private int groundTagHashCode;
+    private int enemyTagHashCode;
     private int towerTagHashCode;
 
     private void Awake()
@@ -27,8 +27,8 @@ public class Controller_Projectile_Rock : MonoBehaviour
         ExplosionGameObject.SetActive(false);
         ExplosionGameObject.TryGetComponent(out explosionParticle);
         TryGetComponent(out body);
-        //groundTagHashCode = "Ground".GetHashCode();
-        //enemyTagHashCode = "Enemy".GetHashCode();
+        groundTagHashCode = "Ground".GetHashCode();
+        enemyTagHashCode = "Enemy".GetHashCode();
         towerTagHashCode = "Tower".GetHashCode();
     }
 
@@ -74,16 +74,16 @@ public class Controller_Projectile_Rock : MonoBehaviour
         
     }
 
-    //// Explosion collision callback
-    //public void OnChildTriggerEnter(Collider other)
-    //{
-    //    int code = other.transform.tag.GetHashCode();
-    //    if (code == enemyTagHashCode)
-    //    {
-    //        if (other.transform.parent.gameObject.TryGetComponent(out Health healthEnemy))
-    //        {
-    //            healthEnemy.DoDamage(damage);
-    //        }
-    //    }
-    //}
+    // Explosion collision callback
+    public void OnChildTriggerEnter(Collider other)
+    {
+        int code = other.transform.tag.GetHashCode();
+        if (code == enemyTagHashCode)
+        {
+            if (other.transform.parent.gameObject.TryGetComponent(out Health healthEnemy))
+            {
+                healthEnemy.DoDamage(damage);
+            }
+        }
+    }
 }
