@@ -1,6 +1,6 @@
 # Finger Smash - Prototype
 Augmented Reality tower defence, based on a medieval fantasy theme.
-Developed in Unity.
+Developed in Unity using Vuforia Core.
 
 ## Features
 - Tower Defense
